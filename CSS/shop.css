@@ -1,0 +1,1446 @@
+```css
+/* =========================================================
+   MONALISA STUDIO PHOTOGRAPHY
+   CSS complet et corrigé
+========================================================= */
+
+/* =========================
+   1. RESET ET VARIABLES
+========================= */
+
+:root {
+    --bg-color: #f7f4ef;
+    --text-color: #292622;
+    --secondary-text: #6d665f;
+    --border-color: #d8d2ca;
+    --footer-bg: #292622;
+    --footer-text: #ffffff;
+    --menu-bg: #f7f4ef;
+    --menu-text: #292622;
+}
+
+body.dark-theme {
+    --bg-color: #292622;
+    --text-color: #f7f4ef;
+    --secondary-text: #cfc8c1;
+    --border-color: #57514b;
+    --footer-bg: #1c1a18;
+    --footer-text: #f7f4ef;
+    --menu-bg: #292622;
+    --menu-text: #f7f4ef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--text-color);
+    background: var(--bg-color);
+    line-height: 1.7;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* =========================
+   2. HEADER ET NAVIGATION
+========================= */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+    color: dimgrey;
+    background: transparent;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    letter-spacing: 5px;
+    line-height: 1;
+}
+
+.logo span {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-top: 7px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav a {
+    position: relative;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width .3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.menu-button {
+    display: none;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 30px;
+    line-height: 1;
+    padding: 8px;
+    position: relative;
+    z-index: 10002;
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: transparent;
+    color: inherit;
+    font-size: 18px;
+    transition: opacity .3s ease;
+}
+
+.theme-toggle:hover {
+    opacity: .7;
+}
+
+/* =========================
+   3. TITRES ET BOUTONS
+========================= */
+
+.small-title,
+.section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+em {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid currentColor;
+    color: inherit;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.button:hover {
+    background: #292622;
+    color: #fff;
+}
+
+.button.dark {
+    color: #292622;
+    border-color: #292622;
+    margin-top: 20px;
+    width: fit-content;
+}
+
+.button.dark:hover {
+    background: #292622;
+    color: #fff;
+}
+
+.text-link {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 5px;
+}
+
+/* =========================
+   4. HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    color: #fff;
+    background-image:
+        linear-gradient(
+            rgba(20, 18, 15, .32),
+            rgba(20, 18, 15, .32)
+        ),
+        url("img/person-leans-forward-while-sitting-in-front-of-geometric-wall.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: .9;
+    font-weight: 300;
+    margin: 25px 0;
+}
+
+.hero-text {
+    max-width: 450px;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+/* =========================
+   5. INTRO
+========================= */
+
+.intro {
+    padding: 140px 20%;
+    text-align: center;
+}
+
+.intro .section-label,
+.section-heading .section-label {
+    color: var(--secondary-text);
+}
+
+.intro h2,
+.section-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(48px, 6vw, 75px);
+    line-height: 1;
+    font-weight: 300;
+    margin: 25px 0;
+}
+
+.intro-text {
+    max-width: 600px;
+    margin: auto;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+/* =========================
+   6. GALERIE D'ACCUEIL
+========================= */
+
+.home-gallery {
+    width: 100%;
+    padding: 0 25px 100px;
+    background: #fff;
+}
+
+.gallery-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.home-gallery-item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #eee;
+    cursor: pointer;
+}
+
+.home-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s ease, opacity .5s ease;
+}
+
+.home-gallery-tall {
+    height: 650px;
+}
+
+.home-gallery-medium {
+    height: 450px;
+}
+
+.home-gallery-small {
+    height: 320px;
+}
+
+.home-gallery-item:hover img {
+    transform: scale(1.05);
+    opacity: .9;
+}
+
+.home-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .25);
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.home-gallery-item:hover .home-gallery-overlay {
+    opacity: 1;
+}
+
+.home-gallery-overlay i {
+    color: #fff;
+    font-size: 30px;
+    transition: transform .3s ease;
+}
+
+.home-gallery-item:hover .home-gallery-overlay i {
+    transform: scale(1.1);
+}
+
+/* =========================
+   7. INTRO PORTFOLIO
+========================= */
+
+.portfolio-intro {
+    width: 80%;
+    max-width: 1200px;
+    margin: 150px auto 60px;
+    text-align: center;
+}
+
+.portfolio-intro h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 7vw, 90px);
+    font-weight: 300;
+    line-height: .95;
+    margin: 20px 0;
+}
+
+.portfolio-intro h1 em {
+    font-style: italic;
+}
+
+.portfolio-intro-text {
+    max-width: 500px;
+    margin: 25px auto;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+/* =========================
+   8. FILTRES PORTFOLIO
+========================= */
+
+.portfolio-filter {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 30px;
+}
+
+.filter-btn {
+    position: relative;
+    border: none;
+    background: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #777;
+    padding: 10px 5px;
+    transition: color .3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: var(--text-color);
+}
+
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 1px;
+    background: currentColor;
+}
+
+/* =========================
+   9. GRILLE PORTFOLIO
+========================= */
+
+.portfolio-gallery {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto 120px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.portfolio-item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+    background: #ddd;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s ease;
+}
+
+.portfolio-item:hover img,
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-item.hidden {
+    display: none;
+}
+
+/* =========================
+   10. GALERIE CLASSIQUE
+========================= */
+
+.portfolio {
+    padding: 100px 6%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    transition: transform .8s ease;
+}
+
+.gallery-item.large {
+    grid-row: span 2;
+}
+
+.gallery-item.large img {
+    height: 1225px;
+}
+
+/* =========================
+   11. FEATURE SECTIONS
+========================= */
+
+.feature-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.feature-section.reverse .feature-image {
+    order: 2;
+}
+
+.feature-section.reverse .feature-content {
+    order: 1;
+}
+
+.feature-image {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.feature-image img {
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    object-fit: cover;
+}
+
+.feature-content {
+    padding: 12%;
+}
+
+.feature-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 5vw, 75px);
+    line-height: .95;
+    font-weight: 300;
+    margin: 25px 0;
+}
+
+.feature-content p:not(.section-label) {
+    color: var(--secondary-text);
+    font-size: 14px;
+    max-width: 450px;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   12. À PROPOS
+========================= */
+
+#apropos {
+    width: 100%;
+    padding: 100px 0;
+}
+
+#apropos .apropos-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#apropos .apropos-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+#apropos .apropos-photo-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+#apropos .apropos-photo-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+#apropos .apropos-text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#apropos .apropos-text {
+    width: 80%;
+    max-width: 500px;
+}
+
+#apropos .apropos-text h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 5vw, 75px);
+    line-height: .95;
+    font-weight: 300;
+    margin: 25px 0;
+}
+
+#apropos .apropos-text h2 em {
+    font-style: italic;
+}
+
+#apropos .apropos-text p:not(.section-label) {
+    max-width: 450px;
+    margin: 0 auto 20px;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+#apropos .text-link {
+    margin-top: 10px;
+}
+
+/* =========================
+   13. CONTACT ET FORMULAIRES
+========================= */
+
+.contact {
+    padding: 25px 8%;
+}
+
+.contact-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.contact h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 6vw, 80px);
+    line-height: .95;
+    font-weight: 300;
+    margin: 25px 0;
+}
+
+.contact-intro {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--secondary-text);
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background: transparent;
+    color: inherit;
+    padding: 10px 8px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--text-color);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    border: 1px solid var(--text-color);
+    background: transparent;
+    color: var(--text-color);
+    padding: 12px 24px;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.submit-button:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* =========================
+   14. FOOTER
+========================= */
+
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 70px 6%;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.footer-logo span {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.socials a {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+footer p {
+    font-size: 10px;
+    color: #aaa;
+}
+
+/* =========================
+   15. SHOP — GALERIE
+========================= */
+
+.four-gallery {
+    width: 100%;
+    padding: 20px 6% 120px;
+    background: var(--bg-color);
+}
+
+.four-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.four-gallery-item {
+    position: relative;
+    overflow: hidden;
+    height: 430px;
+    cursor: pointer;
+    background: #ddd;
+}
+
+.four-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease, opacity .5s ease;
+}
+
+.four-gallery-item:hover img {
+    transform: scale(1.04);
+    opacity: .75;
+}
+
+.four-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .15);
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+}
+
+.four-gallery-item:hover .four-gallery-overlay {
+    opacity: 1;
+}
+
+.four-gallery-overlay span {
+    color: #fff;
+    font-size: 65px;
+    font-weight: 200;
+    line-height: 1;
+    transform: scale(.7);
+    transition: transform .3s ease;
+}
+
+.four-gallery-item:hover .four-gallery-overlay span {
+    transform: scale(1);
+}
+
+/* =========================
+   16. LIGHTBOX
+========================= */
+
+.photo-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(10, 10, 10, .97);
+    padding: 48px 32px;
+    overflow-y: auto;
+}
+
+.photo-lightbox.active {
+    display: flex;
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+.photo-lightbox-close,
+#photoLightboxClose {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 20001;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 38px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.photo-lightbox-close:hover,
+#photoLightboxClose:hover {
+    opacity: 1;
+}
+
+.photo-lightbox-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
+    gap: 64px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.photo-lightbox-image,
+.photo-lightbox-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.photo-lightbox-image {
+    width: 100%;
+    height: 75vh;
+}
+
+.photo-lightbox-image img,
+.photo-lightbox-image-container img,
+#photoLightboxImage {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    margin: auto;
+}
+
+.photo-lightbox-info {
+    color: #fff;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.lightbox-category,
+#photoLightboxCategory {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #b9b9b9;
+    margin-bottom: 24px;
+}
+
+.photo-lightbox-info h2,
+#photoLightboxTitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 24px;
+}
+
+#lightboxDescription,
+#photoLightboxDescription {
+    color: #cfcfcf;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.lightbox-price,
+.photo-lightbox-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    margin-bottom: 28px;
+}
+
+.lightbox-quantity,
+.quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 28px;
+}
+
+.lightbox-quantity button,
+.quantity-selector button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    transition: background-color .25s ease, color .25s ease;
+}
+
+.lightbox-quantity button:hover,
+.quantity-selector button:hover {
+    background: #fff;
+    color: #111;
+}
+
+#quantity {
+    min-width: 32px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+}
+
+.add-cart-button,
+#addToCart {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: #111;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    transition: background-color .25s ease, color .25s ease;
+}
+
+.add-cart-button:hover,
+#addToCart:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.cart-message,
+#cartMessage {
+    display: none;
+    min-height: 20px;
+    margin: 14px 0 0;
+    color: #9ecb9e;
+    font-size: 13px;
+}
+
+.cart-message.show,
+#cartMessage.show {
+    display: block;
+}
+
+.lightbox-cart,
+.photo-lightbox-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, .18);
+    color: #ddd;
+    font-size: 12px;
+}
+
+.lightbox-cart-icon,
+.cart-icon {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+#cartCount,
+.cart-icon i {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-style: normal;
+}
+
+/* =========================
+   17. PAGE DE CONFIRMATION
+========================= */
+
+.thank-page,
+.center-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.thank-content {
+    max-width: 700px;
+    padding: 40px;
+}
+
+.thank-content h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(60px, 8vw, 100px);
+    line-height: 1;
+    font-weight: 300;
+    margin: 25px 0;
+}
+
+.thank-content p:not(.section-label) {
+    color: var(--secondary-text);
+    margin-bottom: 40px;
+}
+
+/* =========================================================
+   18. RESPONSIVE — TABLETTE
+========================================================= */
+
+@media (max-width: 900px) {
+    .photo-lightbox {
+        padding: 70px 18px 40px;
+        align-items: flex-start;
+    }
+
+    .photo-lightbox-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .photo-lightbox-image-container img,
+    .photo-lightbox-image img,
+    #photoLightboxImage {
+        max-height: 50vh;
+    }
+
+    .photo-lightbox-info h2,
+    #photoLightboxTitle {
+        font-size: 36px;
+    }
+
+    .four-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .four-gallery-item {
+        height: 340px;
+    }
+}
+
+/* =========================================================
+   19. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 6%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 10000;
+    }
+
+    .logo {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    .logo span {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .menu-button {
+        display: block;
+        color: var(--text-color);
+    }
+
+    /* Menu fermé */
+    .nav {
+        display: none;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        z-index: 10001;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        padding: 80px 20px 30px;
+        overflow-y: auto;
+        background: var(--menu-bg);
+        color: var(--menu-text);
+    }
+
+    /* Menu ouvert après le clic */
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
+        color: var(--menu-text) !important;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .nav a::after {
+        background: currentColor;
+    }
+
+    .nav .theme-toggle {
+        color: var(--menu-text);
+        border-color: var(--menu-text);
+        flex-shrink: 0;
+    }
+
+    .hero {
+        min-height: 90vh;
+        height: auto;
+        padding: 150px 8% 80px;
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 12vw, 60px);
+    }
+
+    .intro {
+        padding: 100px 8%;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item.large {
+        grid-row: auto;
+    }
+
+    .gallery-item img,
+    .gallery-item.large img {
+        height: 500px;
+    }
+
+    .portfolio-intro {
+        width: 90%;
+        margin-top: 120px;
+    }
+
+    .portfolio-filter,
+    .portfolio-gallery {
+        width: 90%;
+    }
+
+    .portfolio-filter {
+        gap: 8px 18px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .feature-section {
+        grid-template-columns: 1fr;
+        margin-top: 60px;
+    }
+
+    .feature-section.reverse .feature-image,
+    .feature-section.reverse .feature-content {
+        order: initial;
+    }
+
+    .feature-image img {
+        padding: 15px;
+    }
+
+    .feature-content {
+        padding: 60px 8%;
+    }
+
+    #apropos {
+        padding: 60px 0;
+    }
+
+    #apropos .apropos-container {
+        width: 90%;
+    }
+
+    #apropos .apropos-row {
+        grid-template-columns: 1fr;
+    }
+
+    #apropos .apropos-text-box {
+        padding: 50px 0;
+    }
+
+    #apropos .apropos-text {
+        width: 90%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact {
+        padding: 100px 8%;
+    }
+
+    .socials {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .home-gallery {
+        padding: 0 15px 70px;
+    }
+
+    .home-gallery-tall,
+    .home-gallery-medium,
+    .home-gallery-small {
+        height: 450px;
+    }
+
+    .four-gallery {
+        padding: 20px 8% 80px;
+    }
+
+    .four-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .four-gallery-item {
+        height: 300px;
+    }
+
+    .four-gallery-overlay span {
+        font-size: 45px;
+    }
+
+    .photo-lightbox {
+        padding: 70px 15px 30px;
+        align-items: flex-start;
+    }
+
+    .photo-lightbox-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 10px;
+    }
+
+    .photo-lightbox-image {
+        height: 45vh;
+    }
+
+    .photo-lightbox-image img,
+    .photo-lightbox-image-container img,
+    #photoLightboxImage {
+        max-width: 94vw;
+        max-height: 45vh;
+    }
+
+    .photo-lightbox-info {
+        width: 100%;
+        padding-bottom: 30px;
+    }
+
+    .photo-lightbox-info h2,
+    #photoLightboxTitle {
+        font-size: 36px;
+    }
+
+    .photo-lightbox-close,
+    #photoLightboxClose {
+        top: 15px;
+        right: 18px;
+        font-size: 32px;
+    }
+
+    .thank-content {
+        padding: 30px 20px;
+    }
+}
+
+/* =========================================================
+   20. PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 420px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .four-gallery-item {
+        height: 230px;
+    }
+
+    .portfolio-intro h1 {
+        font-size: 48px;
+    }
+
+    .contact h2 {
+        font-size: 48px;
+    }
+}
+
+/* Dark text for the mobile menu in light mode */
+@media (max-width: 768px) {
+    body:not(.dark-theme) .nav.active a {
+        color: #292622 !important;
+    }
+
+    body:not(.dark-theme) .nav.active .theme-toggle {
+        color: #292622 !important;
+        border-color: #292622 !important;
+    }
+}
+
+
+/* ========================================
+   MOBILE MENU BACKGROUND — THEME SUPPORT
+======================================== */
+
+@media (max-width: 768px) {
+
+    /* Light theme */
+    body:not(.dark-theme) .header .nav.active {
+        background-color: #f7f4ef !important;
+        color: #292622 !important;
+    }
+
+    body:not(.dark-theme) .header .nav.active a,
+    body:not(.dark-theme) .header .nav.active .theme-toggle {
+        color: #292622 !important;
+    }
+
+    body:not(.dark-theme) .header .nav.active .theme-toggle {
+        border-color: #292622 !important;
+    }
+
+    /* Dark theme */
+    body.dark-theme .header .nav.active {
+        background-color: #292622 !important;
+        color: #f7f4ef !important;
+    }
+
+    body.dark-theme .header .nav.active a,
+    body.dark-theme .header .nav.active .theme-toggle {
+        color: #f7f4ef !important;
+    }
+
+    body.dark-theme .header .nav.active .theme-toggle {
+        border-color: #f7f4ef !important;
+    }
+}
+
+/* Background de la page Shop en mode clair */
+body:not(.dark-theme) {
+    background: #f7f4ef;
+}

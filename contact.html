@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Monalisa Studio — Contact</title>
+
+<meta name="description" content="Photographe professionnelle spécialisée en maternité, famille et portraits.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="CSS/contact.css">
+
+</head>
+
+<body>
+<!-- HEADER -->
+<header class="header">
+
+    <a href="index.html" class="logo">
+        Monalisa
+        <span>STUDIO PHOTOGRAPHY</span>
+    </a>
+
+    <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu">
+        ☰
+    </button>
+    
+
+    <nav class="nav" id="nav">
+        <a href="index.html">Accueil</a>
+        <a href="main.html">Main</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html">Checkout</a>
+         <!-- Theme Toggle Inside Navigation --> 
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Activer le thème sombre" title="Changer le thème"> ☾ </button>
+
+    </nav>
+
+</header>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="contact-container">
+
+        <h2 style="text-align: center; padding-bottom: 50px;">
+            Créons quelque chose<br>
+            de <em>beau.</em>
+        </h2>
+
+        <p class="contact-intro">
+            Vous avez une idée, une question ou simplement envie de discuter de votre séance ?
+        </p>
+
+        <!-- Message de confirmation ou d'erreur -->
+        <p id="formMessage" role="status" aria-live="polite"></p>
+
+        <!-- FORMULAIRE -->
+        <form id="contactForm">
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input
+                        type="text"
+                        id="prenom"
+                        name="prenom"
+                        autocomplete="given-name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input
+                        type="text"
+                        id="nom"
+                        name="nom"
+                        autocomplete="family-name"
+                        required>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="email">Courriel</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Type de séance</label>
+
+                <select id="type" name="type" required>
+
+                    <option value="">Choisissez une option</option>
+                    <option value="maternite">Maternité</option>
+                    <option value="famille">Famille</option>
+                    <option value="portrait">Portrait</option>
+                    <option value="autre">Autre</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Votre message</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="button submit-button">
+                Envoyer ma demande
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+        Monalisa
+        <span>STUDIO PHOTOGRAPHY</span>
+    </div>
+
+    <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="mailto:info@monalisa.com">Email</a>
+    </div>
+
+    <p>© 2026 Monalisa Studio Photography</p>
+
+</footer>
+
+ <script src="Js/contact.js"></script> 
+
+</body>
+
+</html>

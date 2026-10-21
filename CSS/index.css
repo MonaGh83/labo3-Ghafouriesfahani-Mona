@@ -1,0 +1,568 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+    color: #292622;
+    background: #f7f4ef;
+    line-height: 1.7;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 80px;
+            background: black;
+            color: white;
+            padding: 0 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: .3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,.06);
+        }
+
+        .navbar-brand {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            letter-spacing: 1px;
+            color: white;;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            gap: 35px;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 8px 0 !important;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: white;
+            left: 0;
+            bottom: 2px;
+            transition: .3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            height: 100vh;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0px;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: scale(1.03);
+            transition:
+                opacity 1.2s ease,
+                transform 5s ease;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.18),
+                    transparent 35%,
+                    rgba(0,0,0,.35)
+                );
+        }
+
+        .hero-content {
+            position: absolute;
+            left: 7%;
+            bottom: 10%;
+            color: white;
+            z-index: 5;
+        }
+
+        .hero-content h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 7vw, 90px);
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           SLIDER BUTTONS
+        ========================= */
+
+        .slider-controls {
+            position: absolute;
+            right: 6%;
+            bottom: 8%;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-btn {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,.7);
+            background: rgba(0,0,0,.15);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .slider-btn:hover {
+            background: white;
+            color: #111;
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            padding: 120px 8%;
+            text-align: center;
+        }
+
+        .small-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            color: #777;
+        }
+
+        .intro h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(35px, 5vw, 65px);
+            font-weight: 400;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.15;
+        }
+
+        .intro p {
+            max-width: 650px;
+            margin: 30px auto 0;
+            color: #666;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            padding: 0 4%;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 620px;
+            object-fit: cover;
+            display: block;
+            transition: transform .8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 25px;
+            bottom: 25px;
+            color: white;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: .4s;
+            text-shadow: 0 2px 8px rgba(0,0,0,.5);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-caption h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .gallery-caption span {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .portfoli {
+    padding: 100px 6%;
+}
+.butto {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid white;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+   text-decoration: none;
+}
+
+.butto:hover {
+    background: gris;
+    color: white;
+}
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            padding: 140px 8%;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 650px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-text h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 55px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.9;
+            max-width: 500px;
+        }
+
+        .read-more {
+            margin-top: 30px;
+            color: #111;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 150px 20px;
+            text-align: center;
+            background: #f5f4f1;
+        }
+
+        .cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 6vw, 75px);
+            font-weight: 400;
+            margin-bottom: 35px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            border: 1px solid #111;
+            color: #111;
+            padding: 16px 35px;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: .3s;
+        }
+
+        .cta-btn:hover {
+            background: #111;
+            color: white;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 70px 7% 30px;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: flex-end;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 25px;
+            color: #777;
+            font-size: 11px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                height: 70px;
+                padding: 0 20px;
+            }
+
+            .hero {
+                margin-top: 70px;
+                min-height: 600px;
+            }
+
+            .navbar-nav {
+                gap: 15px;
+                padding: 20px 0;
+            }
+
+            .hero-content {
+                left: 25px;
+                bottom: 90px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .slider-controls {
+                left: 25px;
+                right: auto;
+                bottom: 30px;
+            }
+
+            .intro {
+                padding: 80px 25px;
+            }
+
+            .gallery {
+                padding: 0 15px;
+            }
+
+            .gallery-item img {
+                height: 450px;
+            }
+
+            .gallery-caption {
+                opacity: 1;
+                transform: none;
+            }
+
+            .about {
+                padding: 80px 20px;
+            }
+
+            .about-image img {
+                height: 450px;
+            }
+
+            .about-text {
+                padding: 45px 10px;
+            }
+
+            .about-text h2 {
+                font-size: 45px;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+                margin-top: 30px;
+                flex-wrap: wrap;
+            }
+        }
+           /* =================================================
+   FULL WIDTH VIDEO HERO
+================================================= */
+
+.video-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    background: #111;
+
+}
+
+
+/* =================================================
+   VIDEO
+================================================= */
+
+.video-hero-media {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+}
+
+
+/* =================================================
+   OVERLAY
+================================================= */
+
+.video-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.28);
+
+    z-index: 1;
+
+}
+
+
+/* =================================================
+   CONTENT
+================================================= */
+
+.video-hero-content {
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    color: #fff;
+
+}
+
+
+.video-hero-label {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
